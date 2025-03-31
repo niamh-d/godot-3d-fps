@@ -1,14 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://djvputsthnw0g"]
+[gd_scene load_steps=5 format=3 uid="uid://djvputsthnw0g"]
 
 [ext_resource type="PackedScene" uid="uid://hpri5gdawsdq" path="res://Player/player.tscn" id="1_el0td"]
-
-[sub_resource type="GDScript" id="GDScript_7vqav"]
-script/source = "extends Node3D
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed(\"quit\"):
-		get_tree().quit()
-"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lciwm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,7 +16,6 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="Sandbox" type="Node3D"]
-script = SubResource("GDScript_7vqav")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fwoic")
