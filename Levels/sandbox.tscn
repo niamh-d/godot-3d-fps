@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://djvputsthnw0g"]
+[gd_scene load_steps=7 format=3 uid="uid://djvputsthnw0g"]
 
 [ext_resource type="PackedScene" uid="uid://hpri5gdawsdq" path="res://Player/player.tscn" id="1_el0td"]
+[ext_resource type="Material" uid="uid://dxbjp14cp7hmr" path="res://Resources/box_orange.tres" id="2_16obf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lciwm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,6 +16,9 @@ sky = SubResource("Sky_kl48f")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3i1pv"]
+albedo_color = Color(0.544974, 0.544974, 0.544974, 1)
+
 [node name="Sandbox" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -28,6 +32,26 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(64, 1, 64)
+material = SubResource("StandardMaterial3D_3i1pv")
 
 [node name="Player" parent="." instance=ExtResource("1_el0td")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="PlatformContainer" type="Node3D" parent="."]
+
+[node name="Platform1" type="CSGBox3D" parent="PlatformContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04679, 0.5, 0)
+use_collision = true
+material = ExtResource("2_16obf")
+
+[node name="Platform2" type="CSGBox3D" parent="PlatformContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04679, 0.5, 0)
+use_collision = true
+size = Vector3(1, 2, 1)
+material = ExtResource("2_16obf")
+
+[node name="Platform3" type="CSGBox3D" parent="PlatformContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04679, 0.5, 1)
+use_collision = true
+size = Vector3(1, 3, 1)
+material = ExtResource("2_16obf")
