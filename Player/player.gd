@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 @onready var camera_pivot: Node3D = $CameraPivot
 
-var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var mouse_motion := Vector2.ZERO
 
