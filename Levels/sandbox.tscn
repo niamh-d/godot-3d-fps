@@ -28,7 +28,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 environment = SubResource("Environment_e0sye")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.497942, 0.0453163, 0, 0.0906326, 0.995884, -0.5, 0.862461, -0.0784901, 0, 0, 0)
+transform = Transform3D(-0.992114, 0.0890867, 0.0881586, 0, -0.703394, 0.710799, 0.125333, 0.705194, 0.697848, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_yjku4")]
