@@ -314,3 +314,5 @@ material = ExtResource("3_djv3r")
 
 [node name="Enemy" parent="." instance=ExtResource("4_5fr74")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -16)
+attack_range = 1.5
+max_hitpoints = 100
