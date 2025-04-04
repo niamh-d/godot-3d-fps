@@ -6,6 +6,7 @@ extends Node3D
 
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var weapon_pos: Vector3 = weapon_mesh.position
+@onready var ray_cast: RayCast3D = $RayCast3D
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("fire"):
@@ -16,6 +17,6 @@ func _process(delta: float) -> void:
 
 func shoot() -> void:
 			cooldown_timer.start(1.0 / fire_rate)
-			print("weapon fired!")
+			printt("weapon fired!", ray_cast.get_collider())
 			weapon_mesh.position.z += recoil
 	
