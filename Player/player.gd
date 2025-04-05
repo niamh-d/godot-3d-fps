@@ -8,6 +8,7 @@ extends CharacterBody3D
 
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var damage_animation_player: AnimationPlayer = $DamageTexture/DamageAnimationPlayer
+@onready var game_over_menu: GameOverMenu = $GameOverMenu
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -20,7 +21,7 @@ var hitpoints: int = max_hitpoints:
 			damage_animation_player.play("take_damage")
 		hitpoints = val
 		if hitpoints <= 0:
-			get_tree().quit()
+			game_over_menu.game_over()
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
