@@ -1,3 +1,4 @@
+class_name HitScanWeapon
 extends Node3D
 
 @export var fire_rate := 14.0
