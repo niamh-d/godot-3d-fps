@@ -16,23 +16,35 @@ var ammo_storage := {
 
 func _ready() -> void:
 	SignalManager.weapon_updated.connect(on_weapon_updated)
-	on_weapon_updated()
+	SignalManager.ammo_collected.connect(on_ammo_collected)
+	update_ammo_label()
 
 func has_ammo(type: ammo_type) -> bool:
 	return get_num_bullets(type) > 0
 	
 func use_ammo(type: ammo_type) -> void:
 	if has_ammo(type):
-		ammo_storage[type] -= 1
-		update_ammo_label(ammo_storage[type])
+		update_ammo(type, -1)
+		set_ammo_label(get_num_bullets(type))
 
-func update_ammo_label(val: int) -> void:
-	ammo_label.text = str(val)
+func update_ammo_label() -> void:
+	set_ammo_label(
+		get_num_bullets(weapon_handler.get_current_bullet_type())
+		)
 	
 func get_num_bullets(type: ammo_type) -> int:
 	return ammo_storage[type]
 
+func set_ammo_label(val: int) -> void:
+	ammo_label.text = str(val)
+
 func on_weapon_updated() -> void:
-	update_ammo_label(
-		get_num_bullets(weapon_handler.get_current_bullet_type())
-		)
+	update_ammo_label()
+
+func update_ammo(type: AmmoHandler.ammo_type, val: int) -> void:
+	ammo_storage[type] += val
+
+func on_ammo_collected(type: AmmoHandler.ammo_type, val: int) -> void:
+	update_ammo(type, val)
+	if type == weapon_handler.get_current_bullet_type():	
+		set_ammo_label(get_num_bullets(type))
