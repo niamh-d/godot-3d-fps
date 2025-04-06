@@ -31,7 +31,7 @@ func next_weapon() -> void:
 func previous_weapon() -> void:
 	equip_by_index(-1)
 	
-func equip_by_index(index_modifier) -> void:
+func equip_by_index(index_modifier: int) -> void:
 	var index = get_current_index()
 	index = wrapi(index + index_modifier, 0, get_child_count())
 	equip(get_child(index))
