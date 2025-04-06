@@ -15,6 +15,10 @@ run/main_scene="res://Levels/sandbox.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalManager="*res://Singletons/SignalManager.gd"
+
 [dotnet]
 
 project/assembly_name="RoboRampage"
@@ -72,11 +76,11 @@ weapon_2={
 }
 next_weapon={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(553, 45),"global_position":Vector2(572, 136),"factor":0.0300018,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(485, 22),"global_position":Vector2(504, 113),"factor":0.0300018,"button_index":4,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
-last_weapon={
+previous_weapon={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(297, 37),"global_position":Vector2(316, 128),"factor":0.0300018,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(237, 42),"global_position":Vector2(256, 133),"factor":0.0300018,"button_index":5,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }

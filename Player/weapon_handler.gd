@@ -13,8 +13,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		equip(weapon_2)
 	elif event.is_action_pressed("next_weapon"):
 		next_weapon()
-	elif event.is_action_pressed("last_weapon"):
+	elif event.is_action_pressed("previous_weapon"):
 		previous_weapon()
+
+func get_active_weapon() -> HitScanWeapon:
+	return get_child(get_current_index())
+	
+func get_current_bullet_type() -> AmmoHandler.ammo_type:
+	return get_active_weapon().ammo_type
 
 func equip(active_weapon: HitScanWeapon) -> void:
 	for child in get_children():
@@ -24,6 +30,7 @@ func equip(active_weapon: HitScanWeapon) -> void:
 		else:
 			child.visible = false
 			child.set_process(false)
+	SignalManager.weapon_updated.emit()
 
 func next_weapon() -> void:
 	equip_by_index(1)
