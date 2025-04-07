@@ -2,7 +2,6 @@ class_name Enemy
 extends CharacterBody3D
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
 
 @export var attack_range := 1.5
 @export var max_hitpoints := 100
@@ -41,8 +40,9 @@ func _physics_process(delta: float) -> void:
 	
 	provoked = distance <= aggro_range
 	
-	if provoked && distance <= attack_range:
-		anim_player.play("attack")
+	if provoked:
+		if distance <= attack_range:
+			anim_player.play("attack")
 	
 	if direction:
 		look_at_target(direction)
